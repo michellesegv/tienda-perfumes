@@ -1,0 +1,179 @@
+package cibertec;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Proyecto extends JFrame implements ActionListener {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JMenuBar menuBar;
+	private JMenu mnArchivo;
+	private JMenuItem mntmSalir;
+	private JMenu mnMantenimiento;
+	private JMenuItem mntmConsultarPerfume;
+	private JMenuItem mntmModificarPerfume;
+	private JMenuItem mntmListarPerfume;
+	private JMenu mnVentas;
+	private JMenuItem mntmVender;
+	private JMenuItem mntmGenerarReportes;
+	private JMenu mnConfiguracin;
+	private JMenuItem mntmConfigurarDescuentos;
+	private JMenuItem mntmConfigurarObsequio;
+	private JMenuItem mntmConfigurarCantidadptima;
+	private JMenuItem mntmConfigurarPremioSorpresa;
+	private JMenu mnAyuda;
+	private JMenuItem mntmAcercaDeTienda;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Proyecto frame = new Proyecto();
+					frame.setVisible(true);
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Proyecto() {
+		setTitle("Tienda 1.0");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 800, 600);
+		
+		menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		mnArchivo = new JMenu("Archivo");
+		menuBar.add(mnArchivo);
+		
+		mntmSalir = new JMenuItem("Salir");
+		mnArchivo.add(mntmSalir);
+		
+		mnMantenimiento = new JMenu("Mantenimiento");
+		menuBar.add(mnMantenimiento);
+		
+		mntmConsultarPerfume = new JMenuItem("Consultar Perfume");
+		mntmConsultarPerfume.addActionListener(this);
+		mnMantenimiento.add(mntmConsultarPerfume);
+		
+		mntmModificarPerfume = new JMenuItem("Modificar Perfume");
+		mntmModificarPerfume.addActionListener(this);
+		mnMantenimiento.add(mntmModificarPerfume);
+		
+		mntmListarPerfume = new JMenuItem("Listar Perfume");
+		mntmListarPerfume.addActionListener(this);
+		mnMantenimiento.add(mntmListarPerfume);
+		
+		mnVentas = new JMenu("Ventas");
+		menuBar.add(mnVentas);
+		
+		mntmVender = new JMenuItem("Vender");
+		mnVentas.add(mntmVender);
+		
+		mntmGenerarReportes = new JMenuItem("Generar reportes");
+		mnVentas.add(mntmGenerarReportes);
+		
+		mnConfiguracin = new JMenu("Configuraci\u00F3n");
+		menuBar.add(mnConfiguracin);
+		
+		mntmConfigurarDescuentos = new JMenuItem("Configurar descuentos");
+		mntmConfigurarDescuentos.addActionListener(this);
+		mnConfiguracin.add(mntmConfigurarDescuentos);
+		
+		mntmConfigurarObsequio = new JMenuItem("Configurar obsequio");
+		mntmConfigurarObsequio.addActionListener(this);
+		mnConfiguracin.add(mntmConfigurarObsequio);
+		
+		mntmConfigurarCantidadptima = new JMenuItem("Configurar cantidad \u00F3ptima de perfumes vendidos");
+		mnConfiguracin.add(mntmConfigurarCantidadptima);
+		
+		mntmConfigurarPremioSorpresa = new JMenuItem("Configurar premio sorpresa");
+		mnConfiguracin.add(mntmConfigurarPremioSorpresa);
+		
+		mnAyuda = new JMenu("Ayuda");
+		menuBar.add(mnAyuda);
+		
+		mntmAcercaDeTienda = new JMenuItem("Acerca de Tienda");
+		mntmAcercaDeTienda.addActionListener(this);
+		mnAyuda.add(mntmAcercaDeTienda);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+	}
+	public void actionPerformed(ActionEvent arg0) {
+		if (arg0.getSource() == mntmListarPerfume) {
+			actionPerformedMntmListarPerfume(arg0);
+		}
+		if (arg0.getSource() == mntmConfigurarObsequio) {
+			actionPerformedMntmConfigurarObsequio(arg0);
+		}
+		if (arg0.getSource() == mntmConfigurarDescuentos) {
+			actionPerformedMntmConfigurarDescuentos(arg0);
+		}
+		if (arg0.getSource() == mntmAcercaDeTienda) {
+			actionPerformedMntmAcercaDeTienda(arg0);
+		}
+		if (arg0.getSource() == mntmModificarPerfume) {
+			actionPerformedMntmModificarPerfume(arg0);
+		}
+		if (arg0.getSource() == mntmConsultarPerfume) {
+			actionPerformedMntmConsultarPerfume(arg0);
+		}
+	}
+	protected void actionPerformedMntmConsultarPerfume(ActionEvent arg0) {
+		
+		ConsultarPerfume cp = new ConsultarPerfume();
+		cp.setLocationRelativeTo(this);
+		cp.setVisible(true);
+		
+	}
+	protected void actionPerformedMntmModificarPerfume(ActionEvent arg0) {
+		
+		Modificar m=new Modificar();
+		m.setLocationRelativeTo(this);
+		m.setVisible(true);
+		
+	}
+	protected void actionPerformedMntmAcercaDeTienda(ActionEvent arg0) {
+		AcercaTienda at=new AcercaTienda();
+		at.setLocationRelativeTo(this);
+		at.setVisible(true);
+	}
+	protected void actionPerformedMntmConfigurarDescuentos(ActionEvent arg0) {
+		configurarDescuento cd=new configurarDescuento();
+		cd.setLocationRelativeTo(this);
+		cd.setVisible(true);
+	}
+	protected void actionPerformedMntmConfigurarObsequio(ActionEvent arg0) {
+		configurarObsequio co=new configurarObsequio();
+		co.setLocationRelativeTo(this);
+		co.setVisible(true);
+	}
+	protected void actionPerformedMntmListarPerfume(ActionEvent arg0) {
+		ListarPerfume lp=new ListarPerfume();
+		lp.setLocationRelativeTo(this);
+		lp.setVisible(true);
+	}
+}

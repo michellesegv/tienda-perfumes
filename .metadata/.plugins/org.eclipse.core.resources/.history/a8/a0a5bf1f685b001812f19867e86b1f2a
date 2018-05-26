@@ -1,0 +1,43 @@
+package cibertec;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+
+public class ConfigurarCantPerfumes extends JDialog {
+	private JLabel lblConfigurarCantidadptima;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ConfigurarCantPerfumes dialog = new ConfigurarCantPerfumes();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public ConfigurarCantPerfumes() {
+		setTitle("Configurar cantidad \u00F3ptima de perfumes vendidos");
+		setBounds(100, 100, 600, 250);
+		getContentPane().setLayout(null);
+		
+		lblConfigurarCantidadptima = new JLabel("Cantidad \u00F3ptima de perfumes vendidos");
+		lblConfigurarCantidadptima.setBounds(22, 51, 56, 16);
+		getContentPane().add(lblConfigurarCantidadptima);
+
+	}
+
+}

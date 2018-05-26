@@ -1,0 +1,61 @@
+package cibertec;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JComboBox;
+import javax.swing.JButton;
+import javax.swing.DefaultComboBoxModel;
+
+public class GenerarReporte extends JDialog {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JLabel lblTipoDeReporte;
+	private JComboBox <String> comboBox;
+	private JButton btnCerrar;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GenerarReporte dialog = new GenerarReporte();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public GenerarReporte() {
+		setTitle("Generar reportes");
+		setBounds(100, 100, 600, 400);
+		getContentPane().setLayout(null);
+		
+		lblTipoDeReporte = new JLabel("Tipo de reporte");
+		lblTipoDeReporte.setBounds(12, 26, 106, 16);
+		getContentPane().add(lblTipoDeReporte);
+		
+		comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Ventas por perfume", "Perfumes con venta \u00F3ptima", "Precios en relaci\u00F3n al promedio", "Promedios, m\u00E1ximos y m\u00EDnimos"}));
+		comboBox.setBounds(122, 23, 309, 22);
+		getContentPane().add(comboBox);
+		
+		btnCerrar = new JButton("Cerrar");
+		btnCerrar.setBounds(473, 22, 97, 25);
+		getContentPane().add(btnCerrar);
+
+	}
+}

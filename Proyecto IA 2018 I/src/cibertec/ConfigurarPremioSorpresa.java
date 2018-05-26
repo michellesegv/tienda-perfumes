@@ -1,0 +1,88 @@
+package cibertec;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class ConfigurarPremioSorpresa extends JDialog implements ActionListener {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JLabel lblNmeroDeCliente;
+	private JLabel lblPremioSorpresa;
+	private JTextField txtNumCliente;
+	private JTextField txtPremioSorpresa;
+	private JButton btnAceptar;
+	private JButton btnCancelar;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ConfigurarPremioSorpresa dialog = new ConfigurarPremioSorpresa();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public ConfigurarPremioSorpresa() {
+		setTitle("Configurar premio sorpresa");
+		setBounds(100, 100, 450, 180);
+		getContentPane().setLayout(null);
+		
+		lblNmeroDeCliente = new JLabel("N\u00FAmero de cliente");
+		lblNmeroDeCliente.setBounds(12, 26, 119, 16);
+		getContentPane().add(lblNmeroDeCliente);
+		
+		lblPremioSorpresa = new JLabel("Premio sorpresa");
+		lblPremioSorpresa.setBounds(12, 68, 119, 16);
+		getContentPane().add(lblPremioSorpresa);
+		
+		txtNumCliente = new JTextField();
+		txtNumCliente.setBounds(128, 23, 142, 22);
+		getContentPane().add(txtNumCliente);
+		txtNumCliente.setColumns(10);
+		
+		txtPremioSorpresa = new JTextField();
+		txtPremioSorpresa.setBounds(128, 65, 142, 22);
+		getContentPane().add(txtPremioSorpresa);
+		txtPremioSorpresa.setColumns(10);
+		
+		btnAceptar = new JButton("Aceptar");
+		btnAceptar.setBounds(309, 22, 97, 25);
+		getContentPane().add(btnAceptar);
+		
+		btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(this);
+		btnCancelar.setBounds(309, 64, 97, 25);
+		getContentPane().add(btnCancelar);
+
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCancelar) {
+			actionPerformedBtnCancelar(e);
+		}
+	}
+	protected void actionPerformedBtnCancelar(ActionEvent e) {
+		dispose();
+	}
+}
