@@ -1,0 +1,140 @@
+package cibertec;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class ConfigurarDescuento extends JDialog implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JLabel lblUnoACinco;
+	private JLabel lblSeisADiez;
+	private JLabel lblOnceAQuince;
+	private JLabel lblMasDeQuince;
+	private JTextField txtUnoACinco;
+	private JTextField txtSeisADiez;
+	private JTextField txtOnceAQuince;
+	private JTextField txtMasDeQuince;
+	private JLabel label;
+	private JLabel label_1;
+	private JLabel label_2;
+	private JLabel label_3;
+	private JButton btnAceptar;
+	private JButton btnCancelar;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ConfigurarDescuento dialog = new ConfigurarDescuento();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public ConfigurarDescuento() {
+		setTitle("Configurar porcentajes de descuentos");
+		setBounds(100, 100, 450, 230);
+		getContentPane().setLayout(null);
+		
+		lblUnoACinco = new JLabel("1 a 5 unidades");
+		lblUnoACinco.setBounds(23, 28, 106, 14);
+		getContentPane().add(lblUnoACinco);
+		
+		lblSeisADiez = new JLabel("6 a 10 unidades");
+		lblSeisADiez.setBounds(23, 56, 106, 14);
+		getContentPane().add(lblSeisADiez);
+		
+		lblOnceAQuince = new JLabel("11 a 15 unidades");
+		lblOnceAQuince.setBounds(23, 86, 106, 14);
+		getContentPane().add(lblOnceAQuince);
+		
+		lblMasDeQuince = new JLabel("M\u00E1s de 15 unidades");
+		lblMasDeQuince.setBounds(23, 114, 121, 14);
+		getContentPane().add(lblMasDeQuince);
+		
+		txtUnoACinco = new JTextField(Proyecto.porcentaje1 + "");
+		txtUnoACinco.setBounds(151, 28, 86, 20);
+		getContentPane().add(txtUnoACinco);
+		txtUnoACinco.setColumns(10);
+		
+		txtSeisADiez = new JTextField(Proyecto.porcentaje2 + "");
+		txtSeisADiez.setBounds(151, 56, 86, 20);
+		getContentPane().add(txtSeisADiez);
+		txtSeisADiez.setColumns(10);
+		
+		txtOnceAQuince = new JTextField(Proyecto.porcentaje3 + "");
+		txtOnceAQuince.setBounds(151, 83, 86, 20);
+		getContentPane().add(txtOnceAQuince);
+		txtOnceAQuince.setColumns(10);
+		
+		txtMasDeQuince = new JTextField(Proyecto.porcentaje4 + "");
+		txtMasDeQuince.setBounds(151, 111, 86, 20);
+		getContentPane().add(txtMasDeQuince);
+		txtMasDeQuince.setColumns(10);
+		
+		label = new JLabel("%");
+		label.setBounds(247, 31, 19, 14);
+		getContentPane().add(label);
+		
+		label_1 = new JLabel("%");
+		label_1.setBounds(247, 59, 19, 14);
+		getContentPane().add(label_1);
+		
+		label_2 = new JLabel("%");
+		label_2.setBounds(247, 86, 19, 14);
+		getContentPane().add(label_2);
+		
+		label_3 = new JLabel("%");
+		label_3.setBounds(247, 114, 19, 14);
+		getContentPane().add(label_3);
+		
+		btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(this);
+		btnAceptar.setBounds(307, 24, 89, 23);
+		getContentPane().add(btnAceptar);
+		
+		btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(this);
+		btnCancelar.setBounds(307, 66, 89, 23);
+		getContentPane().add(btnCancelar);
+
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnAceptar) {
+			actionPerformedBtnAceptar(e);
+		}
+		if (e.getSource() == btnCancelar) {
+			actionPerformedBtnCancelar(e);
+		}
+	}
+	protected void actionPerformedBtnCancelar(ActionEvent e) {
+		dispose();
+	}
+	protected void actionPerformedBtnAceptar(ActionEvent e) {
+		Proyecto.porcentaje1=Double.parseDouble(txtUnoACinco.getText());
+		Proyecto.porcentaje2=Double.parseDouble(txtSeisADiez.getText());
+		Proyecto.porcentaje3=Double.parseDouble(txtOnceAQuince.getText());
+		Proyecto.porcentaje4=Double.parseDouble(txtMasDeQuince.getText());
+
+
+	}
+}

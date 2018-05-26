@@ -1,0 +1,82 @@
+package cibertec;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class ListarPerfume extends JDialog implements ActionListener {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JScrollPane scrollPane;
+	private JTextArea txtS;
+	private JButton btnCerrar;
+	private JButton btnListar;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ListarPerfume dialog = new ListarPerfume();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public ListarPerfume() {
+		setTitle("Listar perfumes");
+		setBounds(100, 100, 500, 400);
+		getContentPane().setLayout(null);
+		
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(12, 13, 458, 289);
+		getContentPane().add(scrollPane);
+		
+		txtS = new JTextArea();
+		scrollPane.setViewportView(txtS);
+		
+		btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(this);
+		btnCerrar.setBounds(125, 315, 97, 25);
+		getContentPane().add(btnCerrar);
+		
+		btnListar = new JButton("Listar");
+		btnListar.addActionListener(this);
+		btnListar.setBounds(254, 315, 97, 25);
+		getContentPane().add(btnListar);
+
+	}
+	public void actionPerformed(ActionEvent arg0) {
+		if (arg0.getSource() == btnListar) {
+			actionPerformedBtnListar(arg0);
+		}
+		if (arg0.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(arg0);
+		}
+	}
+	protected void actionPerformedBtnCerrar(ActionEvent arg0) {
+		dispose();
+	}
+	protected void actionPerformedBtnListar(ActionEvent arg0) {
+		txtS.setText("LISTADO DE PERFUMES \n\n");
+		txtS.append("NOMBRE : " + Proyecto.nombre0);
+	}
+}

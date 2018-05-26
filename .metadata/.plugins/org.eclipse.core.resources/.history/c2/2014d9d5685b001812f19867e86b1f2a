@@ -1,0 +1,77 @@
+package cibertec;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+public class ConfigurarPremioSorpresa extends JDialog {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JLabel lblNmeroDeCliente;
+	private JLabel lblPremioSorpresa;
+	private JTextField txtNumCliente;
+	private JTextField txtPremioSorpresa;
+	private JButton btnAceptar;
+	private JButton btnCancelar;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ConfigurarPremioSorpresa dialog = new ConfigurarPremioSorpresa();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public ConfigurarPremioSorpresa() {
+		setTitle("Configurar premio sorpresa");
+		setBounds(100, 100, 450, 230);
+		getContentPane().setLayout(null);
+		
+		lblNmeroDeCliente = new JLabel("N\u00FAmero de cliente");
+		lblNmeroDeCliente.setBounds(12, 25, 119, 16);
+		getContentPane().add(lblNmeroDeCliente);
+		
+		lblPremioSorpresa = new JLabel("Premio sorpresa");
+		lblPremioSorpresa.setBounds(12, 60, 119, 16);
+		getContentPane().add(lblPremioSorpresa);
+		
+		txtNumCliente = new JTextField();
+		txtNumCliente.setBounds(128, 22, 142, 22);
+		getContentPane().add(txtNumCliente);
+		txtNumCliente.setColumns(10);
+		
+		txtPremioSorpresa = new JTextField();
+		txtPremioSorpresa.setBounds(128, 57, 142, 22);
+		getContentPane().add(txtPremioSorpresa);
+		txtPremioSorpresa.setColumns(10);
+		
+		btnAceptar = new JButton("Aceptar");
+		btnAceptar.setBounds(299, 21, 97, 25);
+		getContentPane().add(btnAceptar);
+		
+		btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBounds(299, 60, 97, 25);
+		getContentPane().add(btnCancelar);
+
+	}
+
+}
