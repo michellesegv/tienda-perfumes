@@ -169,7 +169,7 @@ public class Vender extends JDialog implements ActionListener {
 		txtS.append("Importe de descuento: " + descuento + "\n");
 		txtS.append("Importe de compra: " + aPagar + "\n");
 		txtS.append("Obsequio: " + "\n");
-		txtS.append("Premio sorpresa: " + "\n");
+		txtS.append("Premio sorpresa " + "\n");
 		
 	}
 }

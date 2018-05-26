@@ -160,5 +160,7 @@ public class ConsultarPerfume extends JDialog implements ActionListener {
 				txtCasa.setText(Proyecto.casa4 + "");
 				break;
 		}
+		
+	
 	}
 }

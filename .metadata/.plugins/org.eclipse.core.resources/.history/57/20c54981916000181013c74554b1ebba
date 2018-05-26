@@ -92,6 +92,5 @@ public class ConfigurarPremioSorpresa extends JDialog implements ActionListener 
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
 		Proyecto.premioSorpresa = txtPremioSorpresa.getText();
 		Proyecto.numeroClienteSorpresa = Integer.parseInt(txtNumCliente.getText());
-		dispose();
 	}
 }

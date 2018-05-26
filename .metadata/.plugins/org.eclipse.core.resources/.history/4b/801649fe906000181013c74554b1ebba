@@ -55,19 +55,18 @@ public class ConfigurarPremioSorpresa extends JDialog implements ActionListener 
 		lblPremioSorpresa = new JLabel("Premio sorpresa");
 		lblPremioSorpresa.setBounds(12, 68, 119, 16);
 		getContentPane().add(lblPremioSorpresa);
- 
-		txtNumCliente = new JTextField(Proyecto.numeroClienteSorpresa + "");
+		
+		txtNumCliente = new JTextField();
 		txtNumCliente.setBounds(128, 23, 142, 22);
 		getContentPane().add(txtNumCliente);
 		txtNumCliente.setColumns(10);
 		
-		txtPremioSorpresa = new JTextField(Proyecto.premioSorpresa + "");
+		txtPremioSorpresa = new JTextField();
 		txtPremioSorpresa.setBounds(128, 65, 142, 22);
 		getContentPane().add(txtPremioSorpresa);
 		txtPremioSorpresa.setColumns(10);
 		
 		btnAceptar = new JButton("Aceptar");
-		btnAceptar.addActionListener(this);
 		btnAceptar.setBounds(309, 22, 97, 25);
 		getContentPane().add(btnAceptar);
 		
@@ -79,19 +78,11 @@ public class ConfigurarPremioSorpresa extends JDialog implements ActionListener 
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == btnAceptar) {
-			actionPerformedBtnAceptar(e);
-		}
 		if (e.getSource() == btnCancelar) {
 			actionPerformedBtnCancelar(e);
 		}
 	}
 	protected void actionPerformedBtnCancelar(ActionEvent e) {
-		dispose();
-	}
-	protected void actionPerformedBtnAceptar(ActionEvent e) {
-		Proyecto.premioSorpresa = txtPremioSorpresa.getText();
-		Proyecto.numeroClienteSorpresa = Integer.parseInt(txtNumCliente.getText());
 		dispose();
 	}
 }

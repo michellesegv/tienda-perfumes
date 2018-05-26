@@ -67,7 +67,6 @@ public class ConfigurarPremioSorpresa extends JDialog implements ActionListener 
 		txtPremioSorpresa.setColumns(10);
 		
 		btnAceptar = new JButton("Aceptar");
-		btnAceptar.addActionListener(this);
 		btnAceptar.setBounds(309, 22, 97, 25);
 		getContentPane().add(btnAceptar);
 		
@@ -79,19 +78,11 @@ public class ConfigurarPremioSorpresa extends JDialog implements ActionListener 
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == btnAceptar) {
-			actionPerformedBtnAceptar(e);
-		}
 		if (e.getSource() == btnCancelar) {
 			actionPerformedBtnCancelar(e);
 		}
 	}
 	protected void actionPerformedBtnCancelar(ActionEvent e) {
-		dispose();
-	}
-	protected void actionPerformedBtnAceptar(ActionEvent e) {
-		Proyecto.premioSorpresa = txtPremioSorpresa.getText();
-		Proyecto.numeroClienteSorpresa = Integer.parseInt(txtNumCliente.getText());
 		dispose();
 	}
 }

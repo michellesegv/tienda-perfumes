@@ -70,7 +70,7 @@ public class Vender extends JDialog implements ActionListener {
 		lblPrecio.setBounds(10, 46, 77, 14);
 		getContentPane().add(lblPrecio);
 		
-		txtPrecio = new JTextField(Proyecto.precio0 + "");
+		txtPrecio = new JTextField();
 		txtPrecio.setEditable(false);
 		txtPrecio.setBounds(99, 42, 107, 20);
 		getContentPane().add(txtPrecio);
@@ -86,7 +86,6 @@ public class Vender extends JDialog implements ActionListener {
 		txtCantidad.setColumns(10);
 		
 		btnVender = new JButton("Vender");
-		btnVender.addActionListener(this);
 		btnVender.setBounds(279, 13, 89, 23);
 		getContentPane().add(btnVender);
 		
@@ -104,9 +103,6 @@ public class Vender extends JDialog implements ActionListener {
 
 	}
 	public void actionPerformed(ActionEvent arg0) {
-		if (arg0.getSource() == btnVender) {
-			actionPerformedBtnVender(arg0);
-		}
 		if (arg0.getSource() == cboNombre) {
 			actionPerformedCboNombre(arg0);
 		}
@@ -136,40 +132,5 @@ public class Vender extends JDialog implements ActionListener {
 				txtPrecio.setText(Proyecto.precio4 +"");
 				break;
 		}
-	}
-	protected void actionPerformedBtnVender(ActionEvent arg0) {
-		int cantidad;
-		double descuento, precio, importeCompra, aPagar;
-		String nombrePerfume;
-		cantidad = Integer.parseInt(txtCantidad.getText());
-		precio = Double.parseDouble(txtPrecio.getText());
-		nombrePerfume = cboNombre.getSelectedItem()+ "";
-		
-		importeCompra = precio * cantidad;
-		
-		if( cantidad < 5){
-			descuento = importeCompra * 0.01;
-		}
-		else if (cantidad < 10){
-			descuento = importeCompra * 0.02;
-		}
-		else if (cantidad < 15){
-			descuento = importeCompra * 0.03;
-		}
-		else{
-			descuento = importeCompra * 0.04;
-		}
-		aPagar = importeCompra - descuento;
-		
-		txtS.setText("Boleta de pago" + "\n\n");
-		txtS.append("Nombre del perfume: " + nombrePerfume + "\n");
-		txtS.append("Precio Unitario: " + precio + "\n");
-		txtS.append("Cantidad de unidades adquiridas: " + cantidad + "\n");
-		txtS.append("Importe de compra: " + importeCompra + "\n");
-		txtS.append("Importe de descuento: " + descuento + "\n");
-		txtS.append("Importe de compra: " + aPagar + "\n");
-		txtS.append("Obsequio: " + "\n");
-		txtS.append("Premio sorpresa: " + "\n");
-		
 	}
 }

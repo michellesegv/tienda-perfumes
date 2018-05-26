@@ -139,37 +139,20 @@ public class Vender extends JDialog implements ActionListener {
 	}
 	protected void actionPerformedBtnVender(ActionEvent arg0) {
 		int cantidad;
-		double descuento, precio, importeCompra, aPagar;
-		String nombrePerfume;
+		double descuento;
 		cantidad = Integer.parseInt(txtCantidad.getText());
-		precio = Double.parseDouble(txtPrecio.getText());
-		nombrePerfume = cboNombre.getSelectedItem()+ "";
-		
-		importeCompra = precio * cantidad;
 		
 		if( cantidad < 5){
-			descuento = importeCompra * 0.01;
+			descuento = 0.01;
 		}
 		else if (cantidad < 10){
-			descuento = importeCompra * 0.02;
+			descuento = 0.02;
 		}
 		else if (cantidad < 15){
-			descuento = importeCompra * 0.03;
+			descuento = 0.03;
 		}
 		else{
-			descuento = importeCompra * 0.04;
+			descuento = 0.04;
 		}
-		aPagar = importeCompra - descuento;
-		
-		txtS.setText("Boleta de pago" + "\n\n");
-		txtS.append("Nombre del perfume: " + nombrePerfume + "\n");
-		txtS.append("Precio Unitario: " + precio + "\n");
-		txtS.append("Cantidad de unidades adquiridas: " + cantidad + "\n");
-		txtS.append("Importe de compra: " + importeCompra + "\n");
-		txtS.append("Importe de descuento: " + descuento + "\n");
-		txtS.append("Importe de compra: " + aPagar + "\n");
-		txtS.append("Obsequio: " + "\n");
-		txtS.append("Premio sorpresa: " + "\n");
-		
 	}
 }
